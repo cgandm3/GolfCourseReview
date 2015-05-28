@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  # root 'courses#index'
+  root 'golfcourses#index'
 
   get "courses/" => "golfcourses#index"
   get "courses/:id" => "golfcourses#show", as: :course
