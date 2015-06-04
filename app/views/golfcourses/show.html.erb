@@ -1,6 +1,8 @@
-<h1> <%= @courses.name %> </h1>
+<h1> <%= @golfcourses.name %> </h1>
 
-<p>This course is located in <%= @courses.city %>, <%= @courses.county %> County, <%= @courses.state %></p>
+<p>This course is located in <%= @golfcourses.city %>, <%= @golfcourses.county %> County, <%= @golfcourses.state %></p>
+
+<%= link_to 'Add a comment!', new_golfcourse_review_path(@golfcourses) %>
 
 
-<%= link_to "Back to the list!", courses_path %>
+<%= link_to "Back to the list!", golfcourses_path %>

@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-courses = Golfcourse.create([
+golfcourses = Golfcourse.create([
       {name: "Alondra", state: "CA", county: "Los Angeles", city: "Lawndale"},
       {name: "Trump National", state: "CA", county: "Los Angeles", city: "Rancho Palos Verdes"},
       {name: "Lakewood", state: "CA", county: "Los Angeles", city: "Long Beach"},

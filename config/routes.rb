@@ -1,9 +1,50 @@
 Rails.application.routes.draw do
 
+    # get 'users/index'
+    # get 'users/show'
+    # get 'users/new'
+    # get 'users/create'
+    # get 'users/edit'
+    # get 'users/destroy'
+    # get 'users/update'
+
   root 'golfcourses#index'
 
-  get "courses/" => "golfcourses#index"
-  get "courses/:id" => "golfcourses#show", as: :course
+  resources :golfcourses do
+    resources :reviews
+  end
+
+  resources :users 
+
+  
+
+# resources :courses do 
+#   resources :reviews
+# end
+
+    # get    "courses/" => "golfcourses#index"
+    # get    "courses/:golfcourse_id/reviews(.:format)" => "reviews#index", as: :course_reviews
+    # post   "courses/:golfcourse_id/reviews(.:format)" => "reviews#create"
+    # get    "courses/:golfcourse_id/reviews/new(.:format)" => "reviews#new", as: :new_course_review
+    # get    "courses/:golfcourse_id/reviews/:id/edit(.:format)" => "reviews#edit", as: :edit_course_review
+    # get    "courses/:golfcourse_id/reviews/:id(.:format)" => "reviews#show", as: :course_review
+    # patch  "courses/:golfcourse_id/reviews/:id(.:format)" => "reviews#update"
+    # put    "courses/:golfcourse_id/reviews/:id(.:format)" => "reviews#update"
+    # delete "courses/:golfcourse_id/reviews/:id(.:format)" => "reviews#destroy"
+    # get    "courses(.:format)" =>  "golfcourses#index"
+# post   "courses(.:format)" =>  "golfcourses#create"
+# get    "courses/new(.:format)" =>  "golfcourses#new" 
+# get    "courses/:id/edit(.:format)" => "golfcourses#edit" 
+    # get    "courses/:id(.:format)" => "golfcourses#show", as: :course
+# patch  "courses/:id(.:format)" => "golfcourses#update"
+# put    "courses/:id(.:format)" => "golfcourses#update"
+# delete "courses/:id(.:format)" => "golfcourses#destroy"
+
+  # get "courses/" => "golfcourses#index"
+  # get "courses/:id" => "golfcourses#show", as: :course
+  # get "reviews/" => "reviews#new"
+  # get "reviews/:id" => "reviews#show", as: :review
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
