@@ -1,11 +1,11 @@
 <h1>Golf Course Reviews</h1>
 
 <ul>
-    <% @golfcourses.each do |c| %>
+    <% @golfcourses.each do |course| %>
         <li>
-        	<%= c.name %> 
+        	<%= course.name %> 
         
-        	<%= link_to 'Show', golfcourse_path(c) %>
+        	<%= link_to 'Show', golfcourse_path(course) %>
         </li>
     <% end %>
 </ul>

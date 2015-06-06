@@ -1,13 +1,4 @@
-<h1> This is where you show reviews</h1>
-
-<% @review.comment.each do |comment| %>
-  <%= comment.comment %> - posted by <%= comment.user.name %>
-  <% if @review.user == current_user %>
-    <%= link_to 'edit', edit_golfcourse_review_path(@golfcourses, @review) %>
-  <% end %>
-<br>
-<% end %>
-
+<h1>Edit your review!</h1>
 
 <%= form_for [@review.golfcourse, @review] do |f| %>
  
@@ -26,4 +17,4 @@
   </div>
 <% end %>
 
-<%= link_to 'Back', golfcourses_path %>
+<%= link_to "Back to the list!", golfcourses_path %>

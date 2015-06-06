@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     # get 'users/destroy'
     # get 'users/update'
 
-  root 'golfcourses#index'
+  root "golfcourses#index"
 
   resources :golfcourses do
     resources :reviews
@@ -16,15 +16,19 @@ Rails.application.routes.draw do
 
   resources :users 
 
+  get "/login"     => "sessions#new"
+  post "/login"    => "sessions#create"
+  delete "/logout" => "sessions#destroy"
+
+  # get  "golfcourses/:golfcourse_id/reviews(.:format)" => "reviews#index", as: :golfcourse_reviews_path
+  # post "golfcourses/:golfcourse_id/reviews(.:format)" => "reviews#create"
+  # get  "golfcourses/:golfcourse_id/reviews/new(.:format)" => "reviews#new", as: :new_golfcourse_review_path
+  # get  "golfcourses/:golfcourse_id/reviews/:id/edit(.:format)" => "reviews#edit", as: :edit_golfcourse_review_path
+  # get  "golfcourses/:golfcourse_id/reviews" => "reviews#show"
+  # get  "golfcourses/" => "golfcourses#index"
+    
   
-
-# resources :courses do 
-#   resources :reviews
-# end
-
-    # get    "courses/" => "golfcourses#index"
-    # get    "courses/:golfcourse_id/reviews(.:format)" => "reviews#index", as: :course_reviews
-    # post   "courses/:golfcourse_id/reviews(.:format)" => "reviews#create"
+    # get "golfcourses/:golfcourse_id/reviews(.:format)" => "reviews#index", as: :course_reviews
     # get    "courses/:golfcourse_id/reviews/new(.:format)" => "reviews#new", as: :new_course_review
     # get    "courses/:golfcourse_id/reviews/:id/edit(.:format)" => "reviews#edit", as: :edit_course_review
     # get    "courses/:golfcourse_id/reviews/:id(.:format)" => "reviews#show", as: :course_review

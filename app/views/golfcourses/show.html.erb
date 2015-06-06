@@ -2,7 +2,15 @@
 
 <p>This course is located in <%= @golfcourses.city %>, <%= @golfcourses.county %> County, <%= @golfcourses.state %></p>
 
-<%= link_to 'Add a comment!', new_golfcourse_review_path(@golfcourses) %>
+<% @golfcourses.reviews.each do |r| %>
+  <%= r.comment %> - posted by <strong><%= r.user.name %></strong>
+  <% if r.user_id == @current_user %>
+    <%= link_to 'edit', edit_golfcourse_review_path(@golfcourses, @review) %>
+  <% end %>
+<br>
+<% end %>
 
-
+<br>
+<%= link_to 'Add a review!', new_golfcourse_review_path(@golfcourses) %>
+<br>
 <%= link_to "Back to the list!", golfcourses_path %>
