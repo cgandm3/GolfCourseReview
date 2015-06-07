@@ -6,6 +6,7 @@
   <%= r.comment %> - posted by <strong><%= r.user.name %></strong>
   <% if r.user == current_user %>
     <%= link_to 'edit', edit_golfcourse_review_path(@golfcourses, r) %>
+    <%= link_to "delete", golfcourse_review_path(@golfcourses, r), method: :delete %>
   <% end %>
 <br>
 <% end %>

@@ -41,6 +41,12 @@ class ReviewsController < ApplicationController
 		redirect_to golfcourses_path 
 	end
 
+	def destroy
+		@golfcourse = get_golfcourse
+		@review = get_review
+	    @review.destroy
+	      redirect_to golfcourses_path
+  	end
 	
 
 	private
