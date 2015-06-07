@@ -1,28 +1,16 @@
-<h1> This is where you index reviews</h1>
-
-<% @golfcourse.reviews.each do |comment| %>
-  <%= comment.comment %> - posted by <%= comment.user.name %>
-  <% if @review.user == current_user %>
-    <%= link_to 'edit', edit_golfcourse_review_path(@golfcourse, comment) %>
-  <% end %>
-<br>
-<% end %>
-
-<%= form_for [@review.golfcourse, @review] do |f| %>
+<h1> Your review for <%= @golfcourse.name %> has been deleted!</h1>
  
   <div class="field">
-    <%= f.label :comment %><br>
-    <%= f.text_area :comment, size: "50x10" %>
+    <%= label :comment %><br>
+    <%= text_area :comment, size: "50x10" %>
   </div>
 
   <div class="rating">
-    <%= f.label :star_rating %><br>
-    <%= f.text_field :star_rating %>
+    <%= label :star_rating %><br>
+    <%= text_field :star_rating %>
   </div>
   
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <% end %>
+  <br>
 
-<%= link_to 'Back', golfcourses_path %>
+<%= link_to 'Back to the list!', golfcourses_path %>

@@ -1,24 +1,44 @@
 Rails.application.routes.draw do
 
-    # get 'users/index'
-    # get 'users/show'
-    # get 'users/new'
-    # get 'users/create'
-    # get 'users/edit'
-    # get 'users/destroy'
-    # get 'users/update'
+  # resources :golfcourses do
+  #   resources :reviews
+  # end
+
+  # resources :users 
 
   root "golfcourses#index"
 
-  resources :golfcourses do
-    resources :reviews
-  end
+  get    "golfcourses/:golfcourse_id/reviews(.:format)" => "reviews#index", as: :golfcourse_reviews
+  post   "golfcourses/:golfcourse_id/reviews(.:format)" => "reviews#create"
+  get    "golfcourses/:golfcourse_id/reviews/new(.:format)" => "reviews#new", as: :new_golfcourse_review
+  get    "golfcourses/:golfcourse_id/reviews/:id/edit(.:format)" => "reviews#edit", as: :edit_golfcourse_review
+  get    "golfcourses/:golfcourse_id/reviews/:id(.:format)" => "reviews#show", as: :golfcourse_review
+  patch  "golfcourses/:golfcourse_id/reviews/:id(.:format)" => "reviews#update"
+  put    "golfcourses/:golfcourse_id/reviews/:id(.:format)" => "reviews#update"
+  delete "golfcourses/:golfcourse_id/reviews/:id(.:format)" => "reviews#destroy"
 
-  resources :users 
+  get    "golfcourses(.:format)" =>  "golfcourses#index", as: :golfcourses
+  post   "golfcourses(.:format)" =>  "golfcourses#create"
+  get    "golfcourses/new(.:format)" =>  "golfcourses#new", as: :new_golfcourse
+  get    "golfcourses/:id/edit(.:format)" => "golfcourses#edit", as: :edit_golfcourse
+  get    "golfcourses/:id(.:format)" => "golfcourses#show", as: :golfcourse
+  patch  "golfcourses/:id(.:format)" => "golfcourses#update"
+  put    "golfcourses/:id(.:format)" => "golfcourses#update"
+  delete "golfcourses/:id(.:format)" => "golfcourses#destroy"
 
-  get "/login"     => "sessions#new"
-  post "/login"    => "sessions#create"
-  delete "/logout" => "sessions#destroy"
+  get    "users(.:format)" => "users#index", as: :users
+  post   "users(.:format)" => "users#create"
+  get    "users/new(.:format)" => "users#new", as: :new_user
+  get    "users/:id/edit(.:format)" => "users#edit", as: :edit_user
+  get    "users/:id(.:format)" => "users#show", as: :user
+  patch  "users/:id(.:format)" => "users#update"
+  put    "users/:id(.:format)" => "users#update"
+  delete "users/:id(.:format)" => "users#destroy"
+  
+  get    "/login(.:format)"  => "sessions#new", as: :login
+  post   "/login(.:format)"  => "sessions#create"
+  delete "/logout(.:format)" => "sessions#destroy", as: :logout
+
 
   # get  "golfcourses/:golfcourse_id/reviews(.:format)" => "reviews#index", as: :golfcourse_reviews_path
   # post "golfcourses/:golfcourse_id/reviews(.:format)" => "reviews#create"
