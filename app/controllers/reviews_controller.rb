@@ -18,19 +18,18 @@ class ReviewsController < ApplicationController
 
 	def edit
 		@review = get_review
-		# redirect_to golfcourse_path(Golfcourse.find(params[:golfcourse_id])) unless @comment.user == current_user
+		redirect_to golfcourse_path(Golfcourse.find(params[:golfcourse_id])) unless @review.user == current_user
 	end
 
-	# def edit
- #    	@review = get_review
- #  	end
-
 	def update
+		@golfcourse = get_golfcourse
+		@review = get_review
 		review = Review.find(params[:id])
-		if review.user_id == current_user
-			review.update_attributes(comment_params)
+		if review.user == current_user
+			review.update_attributes(review_params)
+			@review = get_review
 		else
-			redirect_to golfcourse_review_path
+			redirect_to edit_golfcourse_review_path
 		end
 	end
 

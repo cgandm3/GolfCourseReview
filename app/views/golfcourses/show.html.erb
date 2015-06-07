@@ -4,8 +4,8 @@
 
 <% @golfcourses.reviews.each do |r| %>
   <%= r.comment %> - posted by <strong><%= r.user.name %></strong>
-  <% if r.user_id == @current_user %>
-    <%= link_to 'edit', edit_golfcourse_review_path(@golfcourses, @review) %>
+  <% if r.user == current_user %>
+    <%= link_to 'edit', edit_golfcourse_review_path(@golfcourses, r) %>
   <% end %>
 <br>
 <% end %>

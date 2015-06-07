@@ -1,9 +1,9 @@
-<h1> This is where you show reviews</h1>
+<h1> This is where you index reviews</h1>
 
 <% @golfcourse.reviews.each do |comment| %>
   <%= comment.comment %> - posted by <%= comment.user.name %>
   <% if @review.user == current_user %>
-    <%= link_to 'edit', edit_golfcourse_review_path(@golfcourses, @review) %>
+    <%= link_to 'edit', edit_golfcourse_review_path(@golfcourse, comment) %>
   <% end %>
 <br>
 <% end %>
