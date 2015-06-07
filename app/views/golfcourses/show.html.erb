@@ -3,7 +3,7 @@
 <p>This course is located in <%= @golfcourses.city %>, <%= @golfcourses.county %> County, <%= @golfcourses.state %></p>
 
 <% @golfcourses.reviews.each do |r| %>
-  <%= r.comment %> - posted by <strong><%= r.user.name %></strong>
+  <%= r.comment %> Stars: <%= r.star_rating %> - posted by <strong><%= r.user.name %></strong>
   <% if r.user == current_user %>
     <%= link_to 'edit', edit_golfcourse_review_path(@golfcourses, r) %>
     <%= link_to "delete", golfcourse_review_path(@golfcourses, r), method: :delete  %>
