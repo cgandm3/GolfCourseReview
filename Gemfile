@@ -34,6 +34,8 @@ gem 'omniauth', '~> 1.2.2'
 
 gem 'bootstrap-sass', '~> 3.3.4.1'
 
+# gem 'sass-rails', '>= 3.2'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
