@@ -13,5 +13,42 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+	
+body {
+ 	margin: 0;
+ 	background-image: url("pebblebeach.jpg");
+ 	background-size: cover;
+ 	background-position: auto;
+ 	/*background-attachment: fixed;*/
+ 	font-family: 'Roboto', sans-serif;
+ 	color: white;
+}
+
+.main {
+	margin-left: 50px;
+	font-size: 20px;
+}
+
+label {
+	color: white;
+}
+
+textarea {
+	color: black;
+}
+
+.rating {
+	color: black;
+}
+
+.actions, a, input {
+	color: red;
+}
+
+#review_star_rating {
+	color: black;
+}
+

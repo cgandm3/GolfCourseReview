@@ -8,7 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<%= link_to	"home", root_path %>
+<div class="main">
+<%= link_to	"Home", root_path %>
 <% if current_user %>
   Logged in as: <%= current_user.name %> <%= link_to 'Log Out', logout_path, method: :delete %>
 <% else %>
@@ -19,4 +20,5 @@
 <%= yield %>
 
 </body>
+</div>
 </html>
