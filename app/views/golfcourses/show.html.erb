@@ -4,15 +4,18 @@
 <p>This course is located in <%= @golfcourses.city %>, <%= @golfcourses.county %> County, <%= @golfcourses.state %></p>
 
 <% @golfcourses.reviews.each do |r| %>
-  <%= r.comment %> Stars: <%= r.star_rating %> - posted by <strong><%= r.user.name %></strong>
-  <% if r.user == current_user %>
-    <%= link_to 'edit', edit_golfcourse_review_path(@golfcourses, r) %>
-    <%= link_to "delete", golfcourse_review_path(@golfcourses, r), method: :delete  %>
-  <% end %>
+	<%= r.comment %> Stars: <%= r.star_rating %> - posted by <strong><%= r.user.name %></strong>
+	<% if r.user == current_user %>
+		<button type="button" class="btn btn-default btn-xs">
+		<%= link_to 'edit', edit_golfcourse_review_path(@golfcourses, r) %></button>
+		<button type="button" class="btn btn-default btn-xs">
+		<%= link_to "delete", golfcourse_review_path(@golfcourses, r), method: :delete  %></button>
+	<% end %>
 <br>
 <% end %>
 
 <br>
-<%= link_to 'Add a review!', new_golfcourse_review_path(@golfcourses) %>
-<br>
-<%= link_to "Back to the list!", golfcourses_path %>
+<button type="button" class="btn btn-default btn-xs">
+<%= link_to 'Add a review!', new_golfcourse_review_path(@golfcourses) %></button>
+<button type="button" class="btn btn-default btn-xs">
+<%= link_to "Back to the list!", golfcourses_path %></button>

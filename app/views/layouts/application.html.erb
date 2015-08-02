@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Golfcoursereview</title>
+  <title>Golf Course Review</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<div class="main">
-<%= link_to	"Home", root_path %>
-<% if current_user %>
-  Logged in as: <%= current_user.name %> <%= link_to 'Log Out', logout_path, method: :delete %>
-<% else %>
-  <%= link_to 'Log In', login_path %>
-  <%= link_to 'Sign Up', new_user_path %>
-<% end %>
-
-<%= yield %>
-
+	<div class="main">
+		<div class="navlinks">
+			<button type="button" class="btn btn-default btn-xs">
+				<%= link_to	"Home", root_path %> 
+			</button>
+					<% if current_user %>
+					Logged in as: <%= current_user.name %>
+						<button type="button" class="btn btn-default btn-xs">
+					   	<%= link_to 'Log Out', logout_path, method: :delete %></button>	
+					<% else %>
+						<button type="button" class="btn btn-default btn-xs">
+					   	<%= link_to 'Log In', login_path %></button>
+					   	<button type="button" class="btn btn-default btn-xs">
+					  	<%= link_to 'Sign Up', new_user_path %></button>
+					<% end %>
+			</button>	
+		</div>
+	<%= yield %>
+	</div>
 </body>
-</div>
 </html>
